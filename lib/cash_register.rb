@@ -2,7 +2,7 @@
 class CashRegister
   attr_accessor :total, :discount
   
-  def initialize(discount = 0)
+  def initialize(discount = nil)
     @total = 0
     @discount = discount
   end
@@ -12,6 +12,7 @@ class CashRegister
   end
   
   def apply_discount
+    if @discount
     @total *= 1-@discount/100.0
     "After the discount, the total comes to $#{@total.round}."
   end
